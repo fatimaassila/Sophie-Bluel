@@ -1,0 +1,99 @@
+
+body{
+    font-family: 'Work Sans';
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 0
+}
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+nav{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    }  
+
+nav, section {
+    display: block;
+}
+nav li {
+    padding: 0 10px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+li{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+h2 {
+font-family: 'Syne';
+font-weight: 700;
+font-size: 30px;
+color: #1D6154;
+display: flex;
+justify-content: center
+}
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+    margin: auto;
+}
+ input {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+input[type="submit"] {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+}
+label {
+    margin: 2em 0 1em 0;
+}
+section {   
+    text-align: center;
+} 
+section a{
+color: black;
+text-decoration:underline;
+}
+footer nav ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em;
+    list-style-type: none;
+}

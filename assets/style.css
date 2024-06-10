@@ -62,13 +62,13 @@ section {
 	margin: 50px 0
 }
 
-h1{
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
+h1 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Syne';
+    font-size: 22px;
+    font-weight: 800;
+    color: #B1663C;
 }
 
 h1 > span {
@@ -204,4 +204,8 @@ font-weight: bolder;
 .filters button:hover {
     background-color: #1D6154;
 	color: white;
+}
+a{
+	color: black;
+	text-decoration:none;
 }
