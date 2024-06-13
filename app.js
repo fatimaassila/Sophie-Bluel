@@ -102,10 +102,8 @@ async function createPortfolioSection() {
 }
 }
 
-
 // executer la fonction createPortfolioSection
 createPortfolioSection();
 
 // nombre d filters = 1 + n // n = categories.lenght 
 // 
-

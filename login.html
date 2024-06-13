@@ -8,6 +8,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./login.css">
+    <script src="auth.js" defer></script>
 	</head>
     <body>
         <header>
@@ -25,12 +26,16 @@
         <main>
             <section>
                 <h2>log In</h2>
-                <form method="get" action="">
+                <div id="errors">
+                </div>
+                <form id="form-login">
+                    <p id="error-message"></p>
                     <label for="email">E-mail</label>
-                    <input  type="email" name="e-mail" id="e-mail" >
+                    <input type="email" name="email" id="login-email" required>
                     <label for="password">Mot de passe </label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="login-password">
                     <input type="submit" value="connecter" id="connecter">
+                    
                 </form>
                 <a href="#"> Mot de passe oublié</a>
             </section>
