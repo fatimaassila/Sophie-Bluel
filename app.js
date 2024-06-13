@@ -1,4 +1,3 @@
-
 // recupérer les works
 async function fetchWorks() {
   const worksReponse = await fetch("http://localhost:5678/api/works");
@@ -101,9 +100,32 @@ async function createPortfolioSection() {
   });
 }
 }
-
+function checkCurrentUser() {
+  const user = isAuthentified();
+  if (user) {
+    console.log(user);
+  } else {
+    console.log("Vous n'êtes pas connecté");
+  }
+}
+function isAuthentified() {
+  const token = localStorage.getItem("token");
+  const loginElement = document.getElementById("login");
+  if (token) {
+    loginElement.innerText = "Logout";
+  } else {
+    loginElement.innerText = "Login";
+  }
+}
+checkCurrentUser();
 // executer la fonction createPortfolioSection
 createPortfolioSection();
 
 // nombre d filters = 1 + n // n = categories.lenght 
-// 
+// // si l'utilisateur est connecté
+// const login = localStorage.getItem();
+// console.log(login);
+// const logout = document.getElementById("login.html");
+// if (login == true) { 
+//   logout.textContent=" logout";
+//  }
