@@ -100,29 +100,93 @@ async function createPortfolioSection() {
   });
 }
 }
+
 function checkCurrentUser() {
-  const user = isAuthentified();
-  if (user) {
-    console.log(user);
-  } else {
-    console.log("Vous n'êtes pas connecté");
-  }
-}
-function isAuthentified() {
   const token = localStorage.getItem("token");
   const loginElement = document.getElementById("login");
   if (token) {
     loginElement.innerText = "Logout";
+    addEditionButtons();
   } else {
     loginElement.innerText = "Login";
   }
 }
-checkCurrentUser();
+function init() {
+  checkCurrentUser();
+  const loginElement = document.getElementById("login");
+  loginElement.addEventListener("click", function () {
+    const token = localStorage.getItem("token");
+    if (token) {
+      localStorage.removeItem("token");
+    } else {
+      window.location.href = "login.html";
+    }
+  })
+}
+
+/**
+ * <nav class="mod-conection">
+		<button>
+			<i class="fa-regular fa-pen-to-square fa-xl"></i>
+      <span>Mode édition</span>
+		</button>
+	</nav>
+ */
+function createNavButtonEditionMode() {
+  const nav = document.createElement("nav");
+  nav.className = "mod-conection";
+  const button = document.createElement("button");
+  nav.className = "mod-conection";
+  const i = document.createElement("i");
+  i.className = "fa-regular fa-pen-to-square fa-xl";
+  const span = document.createElement("span");
+  span.innerText = "Mode édition";
+  button.appendChild(i);
+  button.appendChild(span);
+  nav.appendChild(button);
+  return nav;
+ }
+/**
+ * <button class="btn-modification">
+				<i class="fa-regular fa-pen-to-square fa-lg"></i>
+				<span>modifier</span>
+			</button>
+ */
+function createPortfolioEditionButton() {
+  const button = document.createElement("button");
+  button.className = "btn-modification";
+  const i = document.createElement("i");
+  i.className = "fa-regular fa-pen-to-square fa-lg";
+  const span = document.createElement("span");
+  span.innerText = "modifier";
+  button.appendChild(i);
+  button.appendChild(span);
+  return button;
+}
+function addEditionButtons() {
+  const body = document.querySelector("body");
+  body.insertAdjacentElement('afterbegin', createNavButtonEditionMode());
+  const headerDivOfPortfolioSection = document.querySelector("#header");
+  const btnEdit = createPortfolioEditionButton();
+  btnEdit.addEventListener("click", function () {
+    console.log("Vous avez cliqué sur le bouton modifier");
+  });
+  headerDivOfPortfolioSection.appendChild(btnEdit);
+}
+init();
 // executer la fonction createPortfolioSection
 createPortfolioSection();
 
+
+
+
+
+
+
 // nombre d filters = 1 + n // n = categories.lenght 
-// // si l'utilisateur est connecté
+
+
+
 // const login = localStorage.getItem();
 // console.log(login);
 // const logout = document.getElementById("login.html");

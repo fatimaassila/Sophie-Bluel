@@ -8,18 +8,27 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="modal.css">
 	<script src="app.js" defer></script>
+	<script src="modal.js" defer></script>
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
+			<li>
+				<a id="projects" href="index.html">
+					projets
+				</a>
+			</li>
 			<li>contact</li>
 			<li>
-			 <a id="login" href="login.html"></a> 
+			 <a id="login" href="login.html">login</a> 
 			</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
@@ -38,7 +47,10 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div id="header" class="modification-add"> 
+			<h2>Mes Projets</h2>
+		</div>
+		
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -53,6 +65,21 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
+<!-- modal-content -->
+	<aside id="modal-content" class="modal-content">
+		<div class="modal">
+			<span>
+				<i class="fa-solid fa-xmark fa-lg"></i>
+			</span>
+			<h3 class="text-modal">Galerie photo</h3>
+			<div class="portfolio-modal">
+				
+			</div>
+			<!-- <hr ALIGN=RIGHT WIDTH="40%"> -->
+			<button class="btn-modal">Ajouter une photo</button>
+		</div>
+	</aside>
+
 </main>
 
 <footer>

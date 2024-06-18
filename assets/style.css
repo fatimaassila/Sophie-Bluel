@@ -209,3 +209,36 @@ a{
 	color: black;
 	text-decoration:none;
 }
+/* // // si l'utilisateur est connecté */
+.mod-conection {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: rgb(0, 0, 0);
+height:50px;
+}
+nav button{
+	color: white;
+	font-size: 1.2em;
+	background-color: transparent;
+	border: transparent;
+}
+nav button i{
+	color:white ;
+}
+.btn-modification{
+	padding: 0px;
+	margin: 0px 0px 24px 40px;
+	background-color: transparent;
+	border: transparent;
+	font-size:15px;
+}
+
+.modification-add {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+
