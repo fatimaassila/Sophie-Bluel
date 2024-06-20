@@ -3,7 +3,7 @@ function addEventListenerAuth() {
     formLogin.addEventListener('submit', async function (event) {
         event.preventDefault();
         // creation de l'objet de nouvel user 
-        const user= {
+        const user = {
             email:event.target.querySelector('#login-email').value,
             password:event.target.querySelector('#login-password').value
         }
@@ -23,11 +23,11 @@ function addEventListenerAuth() {
                 localStorage.setItem("token", body.token);
                 window.location.href = "file:///C:/dev_fatima/projects/sophie-bluel-front-end/index.html";
             } else if (response.status === 401) {
-                displayErrorMessage("Email ou mot de passe incorrect");
+                displayLoginErrorMessage("Email ou mot de passe incorrect");
             } else if (response.status === 404) {
-                displayErrorMessage("Compte inexistant");
+                displayLoginErrorMessage("Compte inexistant");
             } else {
-                displayErrorMessage("Unkhnowen error");
+                displayLoginErrorMessage("Unkhnowen error");
             }
         });
     });
@@ -38,7 +38,7 @@ email: sophie.bluel@test.tld
 password: S0phie 
 */
 
-function displayErrorMessage(msg) {
+function displayLoginErrorMessage(msg) {
     const divErrors = document.getElementById('errors');
     const errorElement = document.querySelector('#error-message');
     if(!errorElement) {

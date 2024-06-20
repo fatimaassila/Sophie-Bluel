@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "http-server",
+    "lint": "eslint *.js"
+  },
+  "author": "fatima",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0"
+  }
+}
