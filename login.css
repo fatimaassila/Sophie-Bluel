@@ -114,3 +114,7 @@ footer nav ul {
     margin: 5px;
 
 }
+a {
+    color: black;
+    text-decoration: none; 
+ }

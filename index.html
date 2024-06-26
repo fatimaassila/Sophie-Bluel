@@ -20,11 +20,8 @@
     />
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="stylesheet" href="modal.css" />
-    <script src="edition.js" defer></script>
-    <script src="auth.js" defer></script>
     <script src="api-utils.js" defer></script>
-    <script src="works.js" defer></script>
-    <script src="filters.js" defer></script>
+    <script src="user.js" defer></script>
     <script src="portfolio.js" defer></script>
     <script src="main.js" defer></script>
     <script src="modal.js" defer></script>
@@ -106,21 +103,21 @@
           <span><i id="btn-go-home" class="fa-solid fa-arrow-left"></i></span>
           <span><i id="close-add-work" class="fa-solid fa-xmark"></i></span>
           <h3 class="text-modal">Ajout photo</h3>
-          <form>
-            <div class="containerFiless">
-              <div class="containerFile">
+          <form id="post-work-form">
+            <div class="form-add-work">
+              <div class="file-input">
                 <span><i class="fa-regular fa-image"></i></span>
-                <label for="file">+Ajouter photo</label>
-                <input  type="file" id="file" name="imageUrl" />
-                <img src="#" alt="Aperçut de l'image" />
-                <p>jpg,png: 4 mo max</p>
+                <label id="label-file" for="file">+Ajouter photo</label>
+                <input  type="file" id="file" name="imageUrl"/>
+                <img id="previow-img" src="#" alt="Aperçut de l'image" />
+                <p  id="p-file">jpg,png: 4 mo max</p>
               </div>
               <label class="labeltitle" for="title">Titre</label>
-              <input class="inputtext" type="text" id="title" name="title" />
+              <input class="inputtext" type="text" id="title" name="title" required />
               <label class="labelcategory" for="category">Catégorie</label>
-              <select name="categoryId" id="category"></select>
+              <select name="categoryId" id="category" required></select>
               <hr class="sc-ikZpkk jTSEgo MuiDivider-root MuiDivider-fullWidth">
-              <button class="button" disabled>Valider</button>
+              <button type="submit" class="button" id="submit-work-btn" disabled>Valider</button>
             </div>
           </form>
         </div>

@@ -125,36 +125,39 @@ form {
   height: 100%;
   width: 100%;
 }
-.containerFile {
+.file-input {
   background-color: #E8F1F6;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  padding: 20px;
+  /* height: 80%; */
+  /* justify-content: center; */
+  
 }
-.containerFiless{
+.form-add-work{
  display: flex;
  flex-direction: column;
- padding: 20px 30px 10px 30px ; 
+ padding: 0px 40px 0px 40px ; 
 }
-.containerFile label {
+
+.file-input label {
   background-color: rgb(196, 201, 207);
   color: rgb(104, 126, 152);
   border-radius: 15px;
   padding: 5px 10px;
   margin: 5px
 }
-.containerFile span i {
+.file-input span i {
   color: rgb(196, 201, 207);
   font-size: -webkit-xxx-large;
 }
-.containerFile input{
+.file-input input{
   display: none;
 }
 .labeltitle {
   color: rgb(0, 0, 0);
-  padding: 10px 10px 10px 0px;
+  padding: 20px 10px 20px 0px;
 }
 .inputtext {
   /* display: none; */
@@ -163,15 +166,17 @@ form {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-.containerFile .fa-image {
+.file-input .fa-image {
   font-size: 3rem;
 }
-.containerFile img {
+.file-input img {
   display: none;
-  max-width: 100%;
-  height: 100%;
+  max-width:22%;
 }
-.containerFile .button {
+#p-file{
+margin: 5px;
+}
+.file-input .button {
   background-color: white;
   padding: 5px 10px;
   border-radius: 25px;
@@ -182,16 +187,16 @@ form {
     
 .labelcategory {
   color: rgb(0, 0, 0);
-  padding: 10px 10px 10px 0px;
+  padding: 20px 10px 20px 0px;
 }
 
-.containerFiless select {
+.form-add-work select {
   height: 30px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-.containerFiless button {
+.form-add-work button {
   font-family: 'Syne';
   font-weight: 700;
   color: white;
@@ -208,4 +213,10 @@ form {
   border-width: 0px 0px thin;
   border-style: solid;
   border-color: rgb(218, 217, 220);
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
