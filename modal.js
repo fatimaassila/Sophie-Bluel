@@ -65,15 +65,17 @@ function addEventListenersToModal() {
 async function addWorksToModal(modalParent, works) {
   createGalleryDiv(modalParent, works, "gallery-modal");
 }
-// injecter les works dans le portfolio modal
+// 2/injecter les works dans le portfolio modal
 async function createModalContent() {
   const works = await fetchWorks();
   displayWorksModal(works);
   addEventListenerOnDelete(works);
 }
 
+//1/ ajouter les elements au portfolio
 function displayWorksModal(works) {
   const modal = document.querySelector(".portfolio-modal");
+  // Supprime tous les enfants de la modale (réinitialise le contenu de la modale)
   while (modal.firstChild) {
     modal.firstChild.remove();
   }
@@ -93,7 +95,10 @@ function displayWorksModal(works) {
     modal.appendChild(figureModal);
   });
 }
+
+// 3/ supprimer les works du portfolio
 function addEventListenerOnDelete(works) {
+  // Vérification de l'Argument works:
   if (works) {
     for (let i = 0; i < works.length; i++) {
       const work = works[i];
@@ -107,6 +112,8 @@ function addEventListenerOnDelete(works) {
     }
   }
 }
+
+// 4/ supprimer un work de la base de données
 async function deleteWork(workId) {
   const token = localStorage.getItem("token");
   fetch("http://localhost:5678/api/works/" + workId, {
@@ -122,11 +129,13 @@ async function deleteWork(workId) {
     }
   });
 }
+
 async function deleteFigureElement(workId) {
   const figureModal = document.querySelector(`#figure-${workId}`);
   figureModal.remove();
 }
 // step 2
+/* <!-- modal-add-img --> */
 function addEventListenerModalAdd() {
   const displayModalAdd = document.querySelector(".btn-modal");
   const modal = document.querySelector(".modal");
@@ -135,9 +144,10 @@ function addEventListenerModalAdd() {
     modal.style.display = "flex";
   });
 }
+// supprimer tous les elements de type figure enfant de modal
 function removeAllFigures() {
   const modal = document.querySelector(".portfolio-modal");
-  while (modal.firstChild) {
+  while (modal.firstChild) { // while(modal.firstChild !== null)
     modal.firstChild.remove();
   }
 }
@@ -153,8 +163,8 @@ async function addCategoriesToSelect() {
   });
 }
 
-// la prevesualisation de l'image
-function previewImgModale() {
+// la preview de l'image après l'ajout d'une image
+function addEventListenerToPreviewOnUploadImg() {
   const previewImg = document.querySelector("#previow-img");
   const inputFile = document.querySelector("#file");
   const labelFile = document.querySelector("#label-file");
@@ -176,23 +186,14 @@ function previewImgModale() {
     }
   });
 }
-
-function dismissModalPostCreateNewWork() {
-  const modalContent = document.querySelector(".modal-content");
-  const modal = document.querySelector("#home-step");
-  const modalAddImg = document.querySelector("#add-step");
-  modalContent.style.display = "none";
-  modal.style.display = "flex";
-  modalAddImg.style.display = "none";
-  removeAllFigures();
-  createPortfolioSection(true);
-}
+// ajouter un event listener submit le sur le formulaire 
+// lorsqu'on clique sur le button d'ajout
 function addEventListenerOnPostNewWork() {
-  const token = localStorage.getItem("token");
   const formAddWork = document.querySelector("#post-work-form");
-  const inputFile = document.querySelector("#file");
   formAddWork.addEventListener("submit", async function (event) {
     event.preventDefault();
+    const token = localStorage.getItem("token");
+    const inputFile = document.querySelector("#file");
     let title = event.target.querySelector("#title").value;
     let categoryId = event.target.querySelector("#category").value;
     // creation de l'objet de nouvel user
@@ -201,6 +202,7 @@ function addEventListenerOnPostNewWork() {
     formData.append("image", file);
     formData.append("title", title);
     formData.append("category", categoryId);
+
     fetch("http://localhost:5678/api/works", {
       method: "POST",
       headers: {
@@ -209,11 +211,26 @@ function addEventListenerOnPostNewWork() {
       body: formData,
     }).then(async function (response) {
       if (response.ok) {
-        dismissModalPostCreateNewWork();
+        dismissModalOnCreateNewWork();
       }
     });
   });
 }
+// cacher le modal après le success de l'ajout d'un nouveau projet
+function dismissModalOnCreateNewWork() {
+  const modalContent = document.querySelector(".modal-content");
+  const modal = document.querySelector("#home-step");
+  const modalAddImg = document.querySelector("#add-step");
+  modalContent.style.display = "none";
+  modal.style.display = "flex";
+  modalAddImg.style.display = "none";
+  // supprimer tous les figures dans le modeal
+  removeAllFigures();
+  // re-inialiser le section portofolio 
+  createPortfolioSection(true);
+}
+// add event listner change event sur tous les inputs de formulaire pour valider le
+// formulaire et activer/desactiver le button d'ajout 
 function addValidationEventListener() {
   const inputFile = document.getElementById("file");
   const title = document.getElementById("title");
@@ -228,6 +245,8 @@ function addValidationEventListener() {
     checkFormValidation(title, category, inputFile);
   });
 }
+
+// vérification de la validité du formulaire avant l'envoi  du nouveau projet
 function checkFormValidation(title, category, inputFile) {
   const file = inputFile.files[0];
   if (title && title.value && !(title.value.trim().length === 0) && 
@@ -255,8 +274,8 @@ function resetFrom() {
   const category = document.querySelector("#category");
   category.value = "";
 }
-previewImgModale();
 
+addEventListenerToPreviewOnUploadImg();
 addEventListenersToModal();
 addCategoriesToSelect();
 addValidationEventListener();

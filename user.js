@@ -8,7 +8,6 @@ function checkAuthentication() {
   if (token !== null) {
     isAuthentified = true;
     loginElement.innerText = "Logout";
-    // edition.js
     addEditionButtons();
   } else {
     loginElement.innerText = "Login";
@@ -17,6 +16,7 @@ function checkAuthentication() {
     const token = localStorage.getItem("token");
     if (token) {
       localStorage.removeItem("token");
+      window.location.href = "login.html";
     } else {
       window.location.href = "login.html";
     }
@@ -30,6 +30,8 @@ function addEditionButtons() {
   const btnEdit = createPortfolioEditionButton();
   headerDivOfPortfolioSection.appendChild(btnEdit);
 }
+// creation des elements mode d'adition 
+
 /**
  * <nav class="mod-conection">
 		<button>
@@ -42,7 +44,6 @@ function createNavButtonEditionMode() {
   const nav = document.createElement("nav");
   nav.className = "mod-conection";
   const button = document.createElement("button");
-  nav.className = "mod-conection";
   const i = document.createElement("i");
   i.className = "fa-regular fa-pen-to-square fa-xl";
   const span = document.createElement("span");

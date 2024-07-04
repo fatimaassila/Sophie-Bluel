@@ -4,7 +4,7 @@ async function createPortfolioSection(isAuthentified) {
   // api-utils.js recupérer les works de l'api 
   const works = await fetchWorks();
   // api-utils.js recupérer les categories
-  const categories = getCategories(works);
+  const categories = getCategories(works); 
   //  ajouter les filters au portfolio
   if(!isAuthentified) {
     addFilters(portfolioSection, categories);
