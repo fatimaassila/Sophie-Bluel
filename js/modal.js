@@ -124,15 +124,9 @@ async function deleteWork(workId) {
     },
   }).then(async function (response) {
     if (response.ok) {
-      console.log(response.ok);
       await createModalContent();
     }
   });
-}
-
-async function deleteFigureElement(workId) {
-  const figureModal = document.querySelector(`#figure-${workId}`);
-  figureModal.remove();
 }
 // step 2
 /* <!-- modal-add-img --> */

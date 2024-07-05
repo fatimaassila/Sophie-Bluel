@@ -21,7 +21,7 @@ function addEventListenerAuth() {
             if (response.ok) {
                 const body = await response.json();
                 localStorage.setItem("token", body.token);
-                window.location.href = "file:///C:/dev_fatima/projects/sophie-bluel-front-end/index.html";
+                window.location.href = "index.html";
             } else if (response.status === 401) {
                 displayLoginErrorMessage("Email ou mot de passe incorrect");
             } else if (response.status === 404) {
@@ -32,11 +32,6 @@ function addEventListenerAuth() {
         });
     });
 };
-/*
-email: sophie.bluel@test.tld
-
-password: S0phie 
-*/
 
 function displayLoginErrorMessage(msg) {
     const divErrors = document.getElementById('errors');
