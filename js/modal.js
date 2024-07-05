@@ -62,9 +62,7 @@ function addEventListenersToModal() {
   });
 }
 
-async function addWorksToModal(modalParent, works) {
-  createGalleryDiv(modalParent, works, "gallery-modal");
-}
+
 // 2/injecter les works dans le portfolio modal
 async function createModalContent() {
   const works = await fetchWorks();
@@ -124,26 +122,12 @@ async function deleteWork(workId) {
     },
   }).then(async function (response) {
     if (response.ok) {
-      console.log(response.ok);
       await createModalContent();
     }
   });
 }
-
-async function deleteFigureElement(workId) {
-  const figureModal = document.querySelector(`#figure-${workId}`);
-  figureModal.remove();
-}
 // step 2
-/* <!-- modal-add-img --> */
-function addEventListenerModalAdd() {
-  const displayModalAdd = document.querySelector(".btn-modal");
-  const modal = document.querySelector(".modal");
 
-  displayModalAdd.addEventListener("click", function () {
-    modal.style.display = "flex";
-  });
-}
 // supprimer tous les elements de type figure enfant de modal
 function removeAllFigures() {
   const modal = document.querySelector(".portfolio-modal");
